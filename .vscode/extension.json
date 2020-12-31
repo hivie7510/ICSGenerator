@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "msjsdiag.debugger-for-chrome",
+    "esbenp.prettier-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "vincaslt.highlight-matching-tag",
+    "oderwat.indent-rainbow",
+    "deerawan.vscode-dash",
+    "dsznajder.es7-react-js-snippets"
+  ],
+  "unwantedRecommendations": []
+}

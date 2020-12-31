@@ -1,0 +1,22 @@
+{
+  "name": "icsfilegenerator",
+  "version": "1.0.0",
+  "description": "Standards compliant ICS file generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hivie7510/ICSGenerator.git"
+  },
+  "author": "Heath Ivie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hivie7510/ICSGenerator/issues"
+  },
+  "homepage": "https://github.com/hivie7510/ICSGenerator#readme",
+  "dependencies": {
+    "uuid": "^8.3.2"
+  }
+}
