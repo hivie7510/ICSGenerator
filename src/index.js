@@ -1,3 +1,3 @@
 module.exports.count = function () {
-    return 1000000;
+    return 1000000
 }
