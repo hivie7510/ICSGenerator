@@ -11,6 +11,7 @@ In the end, you will be able to use this package to generate Events, To-dos, Jou
 1.2 [Event Builder](#event_builder)
 2. [Static Values](#static_values)
 3. [Utility Methods](#utilities)
+4. [Examples](#examples)
 
 ## Builders<a name="builders"></a>
 
@@ -111,3 +112,4 @@ Output: `SUMMARY:{summary}`
 ### Utilities<a name="utilities"></a>
 formatDate(Date date)
 
+## Examples<a name="examples"></a>
