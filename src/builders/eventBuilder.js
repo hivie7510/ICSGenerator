@@ -7,18 +7,15 @@ const { formatDate } = require('../utilities/utils')
 class EventBuilder {
     constructor() {
         this.evt = {
-            name: '',
             organizers: [],
             startDate: null,
             endDate: null,
             uid: uuidv4(),
             lastModifiedDate: new Date(),
             url: null,
-            categories: [],
-            refreshInterval: { intervalType: null, value: 0 },
             source: null,
-            color: null,
             imageUrl: null,
+            imageDisplayType: null,
             conferenceInfo: [],
             attendees: [],
             summary: null,
@@ -54,97 +51,6 @@ class EventBuilder {
         return e
     }
 
-    setSummary(summary) {
-        if (summary) {
-            this.evt.summary = summary
-        }
-        return this
-    }
-
-    setDescription(description) {
-        if (description) {
-            this.evt.description = description
-        }
-        return this
-    }
-
-    addConferenceInfo(conference) {
-        if (conference && conference instanceof Conference) {
-            if (conference.isValid()) {
-                this.evt.conferenceInfo.push(conference)
-            }
-        }
-        return this
-    }
-
-    setImageUrl(url) {
-        if (url) {
-            this.evt.imageUrl = url
-        }
-        return this
-    }
-
-    setColor(cssColorName) {
-        if (cssColorName) {
-            this.evt.color = cssColorName
-        }
-        return this
-    }
-
-    setRefreshInterval(intervalType, value) {
-        if (intervalType && !isNaN(value)) {
-            this.evt.refreshInterval.intervalType = intervalType
-            //use floor since it needs to be an int
-            this.evt.refreshInterval.value = Math.floor(value)
-        }
-        return this
-    }
-
-    setSourceUrl(source) {
-        if (source) {
-            this.evt.source = source
-        }
-        return this
-    }
-
-    setName(name) {
-        if (name) {
-            this.evt.name = name
-        }
-        return this
-    }
-
-    setUrl(url) {
-        if (url) {
-            this.evt.url = url
-        }
-        return this
-    }
-
-    setLastModified(date) {
-        if (date && date instanceof Date) {
-            this.evt.lastModifiedDate = date
-            return this
-        }
-        throw 'Last Modified date must be present and of type Date'
-    }
-
-    setStart(startDate) {
-        if (startDate && startDate instanceof Date) {
-            this.evt.startDate = startDate
-            return this
-        }
-        throw 'Start date must be present and of type Date'
-    }
-
-    setEnd(endDate) {
-        if (endDate && endDate instanceof Date) {
-            this.evt.endDate = endDate
-            return this
-        }
-        throw 'End date must be present and of type Date'
-    }
-
     addAttendee(attendee) {
         if (attendee && attendee instanceof Attendee && attendee.isValid()) {
             this.evt.attendees.push(attendee)
@@ -164,6 +70,15 @@ class EventBuilder {
                         this.evt.attendees.push(attendee)
                     }
                 }
+            }
+        }
+        return this
+    }
+
+    addConferenceInfo(conference) {
+        if (conference && conference instanceof Conference) {
+            if (conference.isValid()) {
+                this.evt.conferenceInfo.push(conference)
             }
         }
         return this
@@ -193,6 +108,13 @@ class EventBuilder {
         return this
     }
 
+    setColor(cssColorName) {
+        if (cssColorName) {
+            this.evt.color = cssColorName
+        }
+        return this
+    }
+
     setDescription(description) {
         if (description) {
             this.evt.description = description
@@ -200,21 +122,47 @@ class EventBuilder {
         return this
     }
 
-    addCategory(category) {
-        if (category) {
-            this.evt.categories.push(category)
+    setEnd(endDate) {
+        if (endDate && endDate instanceof Date) {
+            this.evt.endDate = endDate
+            return this
+        }
+        throw 'End date must be present and of type Date'
+    }
+
+    setImageUrl(url, displayType) {
+        if (url) {
+            this.evt.imageUrl = url
+            this.evt.imageDisplayType = displayType
+        }
+        return this
+    }
+    setLastModified(date) {
+        if (date && date instanceof Date) {
+            this.evt.lastModifiedDate = date
+            return this
+        }
+        throw 'Last Modified date must be present and of type Date'
+    }
+
+    setStart(startDate) {
+        if (startDate && startDate instanceof Date) {
+            this.evt.startDate = startDate
+            return this
+        }
+        throw 'Start date must be present and of type Date'
+    }
+
+    setSummary(summary) {
+        if (summary) {
+            this.evt.summary = summary
         }
         return this
     }
 
-    addCategories(categories) {
-        if (categories) {
-            let c = categories.split(',')
-            if (c && c.length > 0) {
-                for (let i = 0; i < c.length; i++) {
-                    this.evt.categories.push(c[i])
-                }
-            }
+    setUrl(url) {
+        if (url) {
+            this.evt.url = url
         }
         return this
     }
