@@ -14,6 +14,14 @@ This method will take an instance of an EventBuilder to represent a single event
 **build**()
 This method will produce a string output of the generated ics
 
+**addCategory**(string category)   
+*Adds the categoriy for a calendar component*  
+Output: `CATEGORIES:{string list of categories}`
+
+**addCategories**(string categories)   
+*Adds 1 or more categories (tags) for the calendar component*  
+Output: `CATEGORIES:{string list of categories}`
+
 **setColor**(string cssColorName) 
 *Sets the color of the calendar in the client*      
 Output: `COLOR:{color}`    
@@ -41,22 +49,14 @@ Output: `ATTENDEE;{Attendee}`
 **addAttendees**(Attendee[] attendees)   
 *Adds a 1 or more attendee to the event*
 
-**addCategory**(string category)   
-*Adds a category (tag) for the event*  
-Output: `CATEGORIES:{string list of categories}`
-
-**addCategories**(string categories)   
-*Adds 1 or more categories (tags) for the event*  
-Output: `CATEGORIES:{string list of categories}`
-
 **addConferenceInfo**(Conference conference)
 
 **addOrganizer**(Organizer organizer)   
-*Adds an organizer to the event*  
+*Adds an organizer for a calendar component*  
 Output: `ORGANIZER;{Organizer}`  
 
 **addOrganizers**(Organizer[] organizer)  
-*Adds 1 or more organizers to the event*    
+*Adds 1 or more organizers for a calendar component*    
 Output: `ORGANIZER;{Organizer}`  
 
 **setDescription**(string description)  
@@ -75,12 +75,16 @@ Output: `IMAGE;VALUE=URI;DISPLAY={displayType}:http://www.test.com/images/test.p
 *Allows to **override** the last modified date which is defaulted to `new Date()`*
 Output: `LAST-MODIFIED:{date}`.  
 
-**setStart**(Date startDate)
+**setStart**(Date startDate)  
+*Sets the start date for the event*  
+Output: `DTSTART:{startDate}`
 
-**setSummary**(string summary)
+**setSummary**(string summary)  
+*Adds a short summary or subject for the event*  
+Output: `SUMMARY:{summary}`
 
 **setUrl**(string url) 
-
+**TODO: Add description **
 
 ### Static Values
 **Availability** [FREE, BUSY, BUSYUNAVAILABLE, BUSTTENTATIVE]
