@@ -12,7 +12,7 @@
     "url": "git+https://github.com/hivie7510/ICSGenerator.git"
   },
   "author": "Heath Ivie",
-  "license": "ISC",
+  "license": "Apache-2.0 License",
   "bugs": {
     "url": "https://github.com/hivie7510/ICSGenerator/issues"
   },
