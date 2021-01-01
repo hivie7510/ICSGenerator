@@ -5,16 +5,33 @@ This package is a standards compliant generator of ICS files.
 
 In the end, you will be able to use this package to generate Events, To-dos, Journal entires and Free/Busy entries.
 
-### Builders
+## Builders
 
-#### Calendar Builder
+### Calendar Builder
 **addEventBuilder**(builder)
 This method will take an instance of an EventBuilder to represent a single event
 
 **build**()
 This method will produce a string output of the generated ics
 
-#### Event Builder
+**setColor**(string cssColorName) 
+*Sets the color of the calendar in the client*      
+Output: `COLOR:{color}`    
+**NOTE: This string value must be a CSS3 Color Name**  
+
+**setName**(string name)  
+*Sets the name of the calendar that can be shown in the client*  
+Output: `NAME:{name}` 
+
+**setRefreshInterval**(Timespan intervalType, number value)  
+*Sets the refresh interval of the calendar*  
+Output: `REFRESH-INTERVAL;VALUE=DURATION:P{value}{intervalType}` 
+
+**setSourceUrl**(string source)
+*Sets the url that this .ics file will be hosted at*  
+Output: `SOURCE:{source}`
+
+### Event Builder
 Each method within the event builder, except for build, is a fluid function.  That is the return type for each method is the event builder itself.
 
 **addAttendee**(Attendee attendee)  
@@ -42,11 +59,6 @@ Output: `ORGANIZER;{Organizer}`
 *Adds 1 or more organizers to the event*    
 Output: `ORGANIZER;{Organizer}`  
 
-**setColor**(string cssColorName) 
-*Sets the color of the event in the client*      
-Output: `COLOR:{color}`    
-**NOTE: This string value must be a CSS3 Color Name**  
-
 **setDescription**(string description)  
 *Sets the description of the event*  
 Output: `DESCRIPTION:{description}`  
@@ -57,15 +69,11 @@ Output: `DTEND:{endDate}`
 
 **setImageUrl**(string url, string displayType)  
 *This will set the image url that will be used in the client.  For convenience, there is an enum DisplayType that can be used.*    
-OUTPUT: `IMAGE;VALUE=URI;DISPLAY={displayType}:http://www.test.com/images/test.png`
+Output: `IMAGE;VALUE=URI;DISPLAY={displayType}:http://www.test.com/images/test.png`
 
-**setLastModified**(Date date)
-
-**setName**(string name)
-
-**setRefreshInterval**(Timespan intervalType, number value)
-
-**setSourceUrl**(string source)
+**setLastModified**(Date date)  
+*Allows to **override** the last modified date which is defaulted to `new Date()`*
+Output: `LAST-MODIFIED:{date}`.  
 
 **setStart**(Date startDate)
 
@@ -74,7 +82,7 @@ OUTPUT: `IMAGE;VALUE=URI;DISPLAY={displayType}:http://www.test.com/images/test.p
 **setUrl**(string url) 
 
 
-### Enums
+### Static Values
 **Availability** [FREE, BUSY, BUSYUNAVAILABLE, BUSTTENTATIVE]
 
 **CalendarUserType** [INDIVIDUAL, GROUP, RESOURCE, ROOM, UNKNOWN]
@@ -87,7 +95,7 @@ OUTPUT: `IMAGE;VALUE=URI;DISPLAY={displayType}:http://www.test.com/images/test.p
 
 **RSVPType** [TRUE, FALSE]
 
-Timespan [MINUTE, HOUR, DAY, WEEK, MONTH, YEAR]
+**Timespan** [MINUTE, HOUR, DAY, WEEK, MONTH, YEAR]
 
 ### Utilities
 formatDate(Date date)
