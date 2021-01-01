@@ -1,6 +1,6 @@
 {
   "name": "ics-standard-compliant-file-generator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "WIP: Standards compliant ICS file generator",
   "main": "index.js",
   "scripts": {
