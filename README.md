@@ -136,4 +136,44 @@ c.addCategories('my meeting, you meeting')
 c.setName('HOME')
 c.setRefreshInterval(Timespan.WEEK, 10)
 
+/*
+Create a EventBuilder
+Create a simple event
+*/
+var eb = new EventBuilder()
+eb.setDescription('Here is a test description')
+    .addOrganizer(new Organizer('hivie7510@gmail.com', 'Heath Ivie')) 
+    .addAttendee(new Attendee('hivie7510@gmail.com', 'Heath Ivie')) 
+    .setStart(new Date(2020, 11, 31, 20, 00))
+    .setEnd(new Date(2021, 0, 1, 20, 00))
+    .setSummary('Party Time')
+    .setDescription("We're having a pool party")
+    .setUrl('http://www.google.com')
+    .setImageUrl('http://www.myimage.com/thumbnail.jpg')
+    .addConferenceInfo(new Conference(FeatureType.AUDIO, 'Moderator dial-in:tel:+1-412-555-0123,,,654321'))
+    .addConferenceInfo(
+        new Conference([FeatureType.AUDIO, FeatureType.MODERATOR], 'Moderator dial-in:tel:+1-412-555-0123,,,654321')
+    )
+    
+//Add the event to the CalendarBuilder and build
+c.addEventBuilder(eb) 
+console.log(c.build())
+```
+OUTPUT
+```
+BEGIN:VCALENDAR
+PRODID:Test
+VERSION:2.0
+BEGIN:VEVENT
+UID:dfd10daa-eeee-4820-8561-0259ccdd4b6c
+DTSTAMP:20210101T033400Z
+DTSTART:20210101T040000Z
+DTEND:20210102T040000Z
+ORGANIZER;CN=Heath Ivie:hivie7510@gmail.com
+ATTENDEE;CUTYPE=UNKNOWN;CN=Heath Ivie;ROLE=REQ-PARTICIPANT;RSVP=FALSE:hivie7510@gmail.com
+SUMMARY:Party Time
+DESCRIPTION:We're having a pool party
+END:VEVENT
+DESCRIPTION:Test
+END:VCALENDAR
 ```
