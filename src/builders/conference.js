@@ -17,6 +17,17 @@ class Conference {
     isValid() {
         return this.featureTypes && this.label
     }
+
+    build() {
+        if (this.isValid()) {
+            let e = 'CONFERENCE;VALUE=URL;'
+            if (this.featureTypes && Array.isArray(this.featureTypes)) {
+                this.featureTypes.forEach((f) => (e += `FEATURE:${f};\r\n`))
+            }
+            e += `LABEL:${this.label}\r\n`
+            return e
+        }
+    }
 }
 
 module.exports = Conference

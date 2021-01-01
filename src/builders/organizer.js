@@ -19,12 +19,12 @@ class Organizer {
             o += `CN=${this.cn}`
         }
         if (this.directoryEntry) {
-            o += `${o ? ';' : ''}DIR=${this.directoryEntry}`
+            o += `${o ? ';\n' : ''}DIR=${this.directoryEntry}`
         }
         if (this.sentBy) {
-            o += `${o ? ';' : ''}SENT-BY="mailto:${this.sentBy}"`
+            o += `${o ? ';\n' : ''}SENT-BY="MAILTO:${this.sentBy}"`
         }
-        o += `:${this.email}`
+        o += `:MAILTO:${this.email}`
         return o
     }
 }

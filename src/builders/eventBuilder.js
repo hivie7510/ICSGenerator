@@ -12,14 +12,14 @@ class EventBuilder {
             endDate: null,
             uid: uuidv4(),
             lastModifiedDate: new Date(),
-            url: null,
-            source: null,
             imageUrl: null,
             imageDisplayType: null,
             conferenceInfo: [],
             attendees: [],
             summary: null,
-            description: null
+            description: null,
+            categories: [],
+            color: null
         }
     }
 
@@ -47,10 +47,30 @@ class EventBuilder {
         if (this.evt.description) {
             e += `DESCRIPTION:${this.evt.description}\r\n`
         }
+        if (this.evt.categories && Array.isArray(this.evt.categories)) {
+            this.evt.categories.forEach((cat) => (e += `CATEGORIES:${cat}\r\n`))
+        }
+        if (this.evt.color) {
+            e += `COLOR:${this.evt.color}\r\n`
+        }
+        if (this.evt.lastModified) {
+            e += `LAST_MODIFIED:${this.evt.lastModified}\r\n`
+        }
+
+        if (this.evt.conferenceInfo && Array.isArray(this.evt.conferenceInfo)) {
+            for (let cc = 0; cc < this.evt.conferenceInfo.length; cc++) {
+                let ci = this.evt.conferenceInfo[cc].build()
+                if (ci) {
+                    e += ci
+                }
+            }
+            this.evt.conferenceInfo.forEach((c) => (e += c.build()))
+        }
         e += 'END:VEVENT\r\n'
         return e
     }
 
+    //https://tools.ietf.org/html/rfc5545#section-3.8.4.1
     addAttendee(attendee) {
         if (attendee && attendee instanceof Attendee && attendee.isValid()) {
             this.evt.attendees.push(attendee)
@@ -61,6 +81,7 @@ class EventBuilder {
     }
 
     /* If any items within the collection are not of type Person, they will be skipped  */
+    //https://tools.ietf.org/html/rfc5545#section-3.8.4.1
     addAttendees(attendees) {
         if (attendees && Array.isArray(attendees)) {
             for (let i = 0; i < attendees.length; i++) {
@@ -75,6 +96,28 @@ class EventBuilder {
         return this
     }
 
+    //https://tools.ietf.org/html/rfc5545#section-3.8.1.2
+    addCategory(category) {
+        if (category) {
+            this.calendar.categories.push(category)
+        }
+        return this
+    }
+
+    //https://tools.ietf.org/html/rfc5545#section-3.8.1.2
+    addCategories(categories) {
+        if (categories && Array.isArray(categories)) {
+            let c = categories.split(',')
+            if (c && c.length > 0) {
+                for (let i = 0; i < c.length; i++) {
+                    this.calendar.categories.push(c[i])
+                }
+            }
+        }
+        return this
+    }
+
+    //https://tools.ietf.org/html/rfc7986#section-5.11
     addConferenceInfo(conference) {
         if (conference && conference instanceof Conference) {
             if (conference.isValid()) {
@@ -84,6 +127,7 @@ class EventBuilder {
         return this
     }
 
+    //https://tools.ietf.org/html/rfc5545#section-3.8.4.3
     addOrganizer(organizer) {
         if (organizer && organizer instanceof Organizer && organizer.isValid()) {
             this.evt.organizers.push(organizer)
@@ -94,6 +138,7 @@ class EventBuilder {
     }
 
     /* If any items within the collection are not of type Person, they will be skipped  */
+    //https://tools.ietf.org/html/rfc5545#section-3.8.4.3
     addOrganizers(organizers) {
         if (organizers && Array.isArray(organizers)) {
             for (let i = 0; i < organizers.length; i++) {
@@ -115,6 +160,7 @@ class EventBuilder {
         return this
     }
 
+    //https://tools.ietf.org/html/rfc5545#section-3.8.1.5
     setDescription(description) {
         if (description) {
             this.evt.description = description
@@ -122,6 +168,7 @@ class EventBuilder {
         return this
     }
 
+    //https://tools.ietf.org/html/rfc5545#section-3.8.2.2
     setEnd(endDate) {
         if (endDate && endDate instanceof Date) {
             this.evt.endDate = endDate
@@ -137,6 +184,7 @@ class EventBuilder {
         }
         return this
     }
+    //https://tools.ietf.org/html/rfc5545#section-3.8.7.3
     setLastModified(date) {
         if (date && date instanceof Date) {
             this.evt.lastModifiedDate = date
@@ -145,6 +193,7 @@ class EventBuilder {
         throw 'Last Modified date must be present and of type Date'
     }
 
+    //https://tools.ietf.org/html/rfc5545#section-3.8.2.4
     setStart(startDate) {
         if (startDate && startDate instanceof Date) {
             this.evt.startDate = startDate
@@ -153,16 +202,10 @@ class EventBuilder {
         throw 'Start date must be present and of type Date'
     }
 
+    //https://tools.ietf.org/html/rfc5545#section-3.8.1.12
     setSummary(summary) {
         if (summary) {
             this.evt.summary = summary
-        }
-        return this
-    }
-
-    setUrl(url) {
-        if (url) {
-            this.evt.url = url
         }
         return this
     }
