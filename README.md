@@ -28,19 +28,32 @@ addCategory(string category)
 *Adds a category (tag) for the event*  
 Output: `CATEGORIES:{string list of categories}`
 
-addCategories(string categories)
+addCategories(string categories)   
+*Adds 1 or more categories (tags) for the event*  
+Output: `CATEGORIES:{string list of categories}`
 
 addConferenceInfo(Conference conference)
 
-addOrganizer(Organizer organizer) 
+addOrganizer(Organizer organizer)   
+*Adds an organizer to the event*  
+Output: `ORGANIZER;{Organizer}`  
 
-addOrganizers(Organizer[] organizer) 
+addOrganizers(Organizer[] organizer)  
+*Adds 1 or more organizers to the event*    
+Output: `ORGANIZER;{Organizer}`  
 
 setColor(string cssColorName) 
+*Sets the color of the event in the client*      
+Output: `COLOR:{color}`    
+**NOTE: This string value must be a CSS3 Color Name**  
 
-setDescription(string description) 
+setDescription(string description)  
+*Sets the description of the event*  
+Output: `DESCRIPTION:{description}`  
 
-setEnd(Date endDate) 
+setEnd(Date endDate)  
+*Sets the end date of the event*
+Output: `DTEND:{endDate}`  
 
 setImageUrl(string url)
 
