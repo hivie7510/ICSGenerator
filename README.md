@@ -1,5 +1,5 @@
 # ICSGenerator
-
+[![npm version](https://img.shields.io/npm/v/ics-standard-compliant-file-generator.svg?style=flat)](https://www.npmjs.com/package/ics-standard-compliant-file-generator)
 ## This package is a work in progress
 
 This package is a standards compliant generator of ICS files.
