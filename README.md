@@ -9,9 +9,10 @@ In the end, you will be able to use this package to generate Events, To-dos, Jou
 1. [Builders](#builders)  
 1.1 [Calendar Builder](#calendar_builder)  
 1.2 [Event Builder](#event_builder)
-2. [Static Values](#static_values)
-3. [Utility Methods](#utilities)
-4. [Examples](#examples)
+2. [Objects](#objects)
+3. [Static Values](#static_values)
+4. [Utility Methods](#utilities)
+5. [Examples](#examples)
 
 ## Builders<a name="builders"></a>
 
@@ -159,6 +160,9 @@ eb.setDescription('Here is a test description')
 c.addEventBuilder(eb) 
 console.log(c.build())
 ```
+*To run this example, you need only run this command: node index.js .*
+*If you want to create the file in your test environment, you will needs to output to a file (e.g. node index.js > text.ics)*
+
 OUTPUT
 ```
 BEGIN:VCALENDAR
