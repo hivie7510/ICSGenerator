@@ -5,6 +5,7 @@ This package is a standards compliant generator of ICS files.
 
 In the end, you will be able to use this package to generate Events, To-dos, Journal entires and Free/Busy entries.
 
+### Builders
 
 #### Calendar Builder
 addEventBuilder(builder)
@@ -51,3 +52,23 @@ setStart(Date startDate)
 setSummary(string summary)
 
 setUrl(string url) 
+
+
+### Enums
+Availability [FREE, BUSY, BUSYUNAVAILABLE, BUSTTENTATIVE]
+
+CalendarUserType [INDIVIDUAL, GROUP, RESOURCE, ROOM, UNKNOWN]
+
+DisplayType [BADGE, GRAPHIC, FULLSIZE, THUMBNAIL]
+
+FeatureType [AUDIO, CHAT, FEED, MODERATOR, PHONE, SCREEN, VIDEO]
+
+Role [CHAIR, REQPARTICIPANT, OPTPARTICIPANT, NONPARTICIPANT]
+
+RSVPType [TRUE, FALSE]
+
+Timespan [MINUTE, HOUR, DAY, WEEK, MONTH, YEAR]
+
+### Utilities
+formatDate(Date date)
+
