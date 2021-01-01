@@ -5,9 +5,16 @@ This package is a standards compliant generator of ICS files.
 
 In the end, you will be able to use this package to generate Events, To-dos, Journal entires and Free/Busy entries.
 
-## Builders
+# Table of Contents
+1. [Builders](#builders)  
+1.1 [Calendar Builder](#calendar_builder)  
+1.2 [Event Builder](#event_builder)
+2. [Static Values](#static_values)
+3. [Utility Methods](#utilities)
 
-### Calendar Builder
+## Builders<a name="builders"></a>
+
+### Calendar Builder<a name="calendar_builder"></a>
 **addEventBuilder**(builder)
 This method will take an instance of an EventBuilder to represent a single event
 
@@ -39,7 +46,7 @@ Output: `REFRESH-INTERVAL;VALUE=DURATION:P{value}{intervalType}`
 *Sets the url that this .ics file will be hosted at*  
 Output: `SOURCE:{source}`
 
-### Event Builder
+### Event Builder<a name="event_builder"></a>
 Each method within the event builder, except for build, is a fluid function.  That is the return type for each method is the event builder itself.
 
 **addAttendee**(Attendee attendee)  
@@ -86,7 +93,7 @@ Output: `SUMMARY:{summary}`
 **setUrl**(string url) 
 **TODO: Add description **
 
-### Static Values
+### Static Values<a name="static_values"></a>
 **Availability** [FREE, BUSY, BUSYUNAVAILABLE, BUSTTENTATIVE]
 
 **CalendarUserType** [INDIVIDUAL, GROUP, RESOURCE, ROOM, UNKNOWN]
@@ -101,6 +108,6 @@ Output: `SUMMARY:{summary}`
 
 **Timespan** [MINUTE, HOUR, DAY, WEEK, MONTH, YEAR]
 
-### Utilities
+### Utilities<a name="utilities"></a>
 formatDate(Date date)
 
