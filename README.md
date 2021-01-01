@@ -17,11 +17,16 @@ This method will produce a string output of the generated ics
 #### Event Builder
 Each method within the event builder, except for build, is a fluid function.  That is the return type for each method is the event builder itself.
 
-addAttendee(Attendee attendee)
+addAttendee(Attendee attendee)  
+*Adds a single attendee to the event*  
+Output: `ATTENDEE;{Attendee}`
 
-addAttendees(Attendee[] attendee)
+addAttendees(Attendee[] attendees)   
+*Adds a 1 or more attendee to the event*
 
-addCategory(string category) 
+addCategory(string category)   
+*Adds a category (tag) for the event*  
+Output: `CATEGORIES:{string list of categories}`
 
 addCategories(string categories)
 
