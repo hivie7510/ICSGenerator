@@ -13,13 +13,13 @@ const {
 
 //Create a new instance of the CalendarBuilder
 var c = new CalendarBuilder()
-c.setUrl('http://www.mycalendar.com')
-c.setSource('http://www.mycalendar.com/test.ics')
-c.setColor('red')
-c.addCategory('Meeting')
-c.addCategories('my meeting, you meeting')
-c.setName('HOME')
-c.setRefreshInterval(Timespan.WEEK, 10)
+    .setUrl('http://www.mycalendar.com')
+    .setSource('http://www.mycalendar.com/test.ics')
+    .setColor('red')
+    .addCategory('Meeting')
+    .addCategories('my meeting, you meeting')
+    .setName('HOME')
+    .setRefreshInterval(Timespan.WEEK, 10)
 
 var eb = new EventBuilder()
 eb.setDescription('Here is a test description')
