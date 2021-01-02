@@ -128,65 +128,73 @@ formatDate(Date date)
 const {
     CalendarBuilder,
     EventBuilder,
-    Conference,
     Attendee,
     Organizer,
-    Timespan,
-    FeatureType
+    Role,
+    CalendarUserType,
+    RSVPType
 } = require('ics-standard-compliant-file-generator')
 
-//Create a new instance of the CalendarBuilder
+/*
+    
+    To import the package you will need to either run this example outside of the root
+    or modify temporarily the package.json to change the name.  Otherwise, the package
+    will not install because there will be a name conflict 
+
+*/
+
+/*
+
+    Start with creating a Calendar Builder, this does not need to happen at first but it is logical to start here
+    The Calendar Builder is the container and the actual generator of the *.ics file
+
+*/
 var c = new CalendarBuilder()
-c.setSourceUrl('http://www.mycalendar.com/test.ics')
+c.setUrl('http://www.mycalendar.com')
+c.setSource('http://www.mycalendar.com/test.ics')
 c.setColor('red')
 c.addCategory('Meeting')
 c.addCategories('my meeting, you meeting')
 c.setName('HOME')
-c.setRefreshInterval(Timespan.WEEK, 10)
 
 /*
-Create a EventBuilder
-Create a simple event
+    
+    Now lets build a single event by instantiating an Event Builder
+    We can create the bare minimum required for an event
+
 */
 var eb = new EventBuilder()
-eb.setDescription('Here is a test description')
-    .addOrganizer(new Organizer('testOrganizer@gmail.com', 'Test Organizer'))
-    .addAttendee(new Attendee('testAttendee@gmail.com', 'Test Attendee'))
-    .setStart(new Date(2020, 11, 31, 20, 00))
-    .setEnd(new Date(2021, 0, 1, 20, 00))
+eb.addOrganizer(new Organizer('testOrganizer@gmail.com', 'Test Organizer'))
+    .addAttendee(
+        new Attendee(
+            'testAttendee@gmail.com',
+            'Test Attendee',
+            null,
+            'test-delegate-from@test.com',
+            'test-delegate-to@test.com',
+            null,
+            'test-sent-by@test.com',
+            Role.CHAIR,
+            CalendarUserType.INDIVIDUAL,
+            RSVPType.TRUE
+        )
+    )
+    .setStart(new Date(2021, 0, 1, 20, 00))
+    .setEnd(new Date(2021, 0, 2, 20, 00))
     .setSummary('Party Time')
     .setDescription("We're having a pool party")
-    .setUrl('http://www.google.com')
-    .setImageUrl('http://www.myimage.com/thumbnail.jpg')
-    .addConferenceInfo(new Conference(FeatureType.AUDIO, 'Moderator dial-in:tel:+1-412-555-0123,,,654321'))
-    .addConferenceInfo(
-        new Conference([FeatureType.AUDIO, FeatureType.MODERATOR], 'Moderator dial-in:tel:+1-412-555-0123,,,654321')
-    )
 
-//Add the event to the CalendarBuilder and build
+//Now that we have described our event, we can add it to the Calendar Builder
 c.addEventBuilder(eb)
-console.log(c.build())
-```
 
-_To run this example, you need only run this command: node index.js ._
-_If you want to create the file in your test environment, you will needs to output to a file (e.g. node index.js > text.ics)_
+//All that is left is to call the build the file contents
+let icsContent = c.build()
 
-OUTPUT
+//At this point you use which ever method you want to use to create the file
+//For testing I just pushed the console output to a file
+console.log(icsContent)
 
-```
-BEGIN:VCALENDAR
-PRODID:Test
-VERSION:2.0
-BEGIN:VEVENT
-UID:dfd10daa-eeee-4820-8561-0259ccdd4b6c
-DTSTAMP:20210101T033400Z
-DTSTART:20210101T040000Z
-DTEND:20210102T040000Z
-ORGANIZER;CN=Heath Ivie:hivie7510@gmail.com
-ATTENDEE;CUTYPE=UNKNOWN;CN=Heath Ivie;ROLE=REQ-PARTICIPANT;RSVP=FALSE:hivie7510@gmail.com
-SUMMARY:Party Time
-DESCRIPTION:We're having a pool party
-END:VEVENT
-DESCRIPTION:Test
-END:VCALENDAR
+//The call from the terminal then becomes:
+// node index.js > test.ics
+
 ```
