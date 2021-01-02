@@ -66,8 +66,6 @@ class Calendar {
         throw 'Invalid calendar values'
     }
 
-    buildEvent() {}
-
     //https://tools.ietf.org/html/rfc7986#section-5.6
     addCategory(category) {
         if (category) {

@@ -23,59 +23,72 @@ class EventBuilder {
         }
     }
 
-    build() {
-        let e = 'BEGIN:VEVENT\r\n'
-        e += `UID:${this.evt.uid}\r\n`
-        e += `DTSTAMP:${formatDate(new Date())}\r\n`
-        e += `DTSTART:${formatDate(this.evt.startDate)}\r\n`
-        if (this.evt.endDate) {
-            e += `DTEND:${formatDate(this.evt.endDate)}\r\n`
+    isValid() {
+        let e = this.evt
+        if (e.startDate && e.endDate && e.endDate.getTime() < e.startDate.getTime()) {
+            throw 'Invalid dates.  Event start date must be less than end date'
         }
-        if (this.evt.organizers) {
-            for (let i = 0; i < this.evt.organizers.length; i++) {
-                e += `ORGANIZER;${this.evt.organizers[i].build()}\r\n`
-            }
-        }
-        if (this.evt.attendees) {
-            for (let i = 0; i < this.evt.attendees.length; i++) {
-                e += `ATTENDEE;${this.evt.attendees[i].build()}\r\n`
-            }
-        }
-        if (this.evt.summary) {
-            e += `SUMMARY:${this.evt.summary}\r\n`
-        }
-        if (this.evt.description) {
-            e += `DESCRIPTION:${this.evt.description}\r\n`
-        }
-        if (this.evt.categories && Array.isArray(this.evt.categories)) {
-            this.evt.categories.forEach((cat) => (e += `CATEGORIES:${cat}\r\n`))
-        }
-        if (this.evt.color) {
-            e += `COLOR:${this.evt.color}\r\n`
-        }
-        if (this.evt.lastModified) {
-            e += `LAST_MODIFIED:${this.evt.lastModified}\r\n`
-        }
+        return true
+    }
 
-        if (this.evt.conferenceInfo && Array.isArray(this.evt.conferenceInfo)) {
-            for (let cc = 0; cc < this.evt.conferenceInfo.length; cc++) {
-                let ci = this.evt.conferenceInfo[cc].build()
-                if (ci) {
-                    e += ci
+    build() {
+        if (this.isValid()) {
+            let e = 'BEGIN:VEVENT\r\n'
+            e += `UID:${this.evt.uid}\r\n`
+            e += `DTSTAMP:${formatDate(new Date())}\r\n`
+            e += `DTSTART:${formatDate(this.evt.startDate)}\r\n`
+            if (this.evt.endDate) {
+                e += `DTEND:${formatDate(this.evt.endDate)}\r\n`
+            }
+            if (this.evt.organizers) {
+                for (let i = 0; i < this.evt.organizers.length; i++) {
+                    e += `ORGANIZER;${this.evt.organizers[i].build()}\r\n`
                 }
             }
-            this.evt.conferenceInfo.forEach((c) => (e += c.build()))
+            if (this.evt.attendees) {
+                for (let i = 0; i < this.evt.attendees.length; i++) {
+                    e += `ATTENDEE;${this.evt.attendees[i].build()}\r\n`
+                }
+            }
+            if (this.evt.summary) {
+                e += `SUMMARY:${this.evt.summary}\r\n`
+            }
+            if (this.evt.description) {
+                e += `DESCRIPTION:${this.evt.description}\r\n`
+            }
+            if (this.evt.categories && Array.isArray(this.evt.categories)) {
+                this.evt.categories.forEach((cat) => (e += `CATEGORIES:${cat}\r\n`))
+            }
+            if (this.evt.color) {
+                e += `COLOR:${this.evt.color}\r\n`
+            }
+            if (this.evt.lastModified) {
+                e += `LAST_MODIFIED:${this.evt.lastModified}\r\n`
+            }
+
+            if (this.evt.conferenceInfo && Array.isArray(this.evt.conferenceInfo)) {
+                for (let cc = 0; cc < this.evt.conferenceInfo.length; cc++) {
+                    let ci = this.evt.conferenceInfo[cc].build()
+                    if (ci) {
+                        e += ci
+                    }
+                }
+                this.evt.conferenceInfo.forEach((c) => (e += c.build()))
+            }
+            e += 'END:VEVENT\r\n'
+            return e
         }
-        e += 'END:VEVENT\r\n'
-        return e
     }
 
     //https://tools.ietf.org/html/rfc5545#section-3.8.4.1
     addAttendee(attendee) {
-        if (attendee && attendee instanceof Attendee && attendee.isValid()) {
+        if (attendee && attendee instanceof Attendee) {
+            if (!attendee.isValid()) {
+                throw 'Invalid attendee'
+            }
             this.evt.attendees.push(attendee)
         } else {
-            throw 'Attendee must be of type Person'
+            throw 'attendee must be of type Person'
         }
         return this
     }
@@ -87,9 +100,10 @@ class EventBuilder {
             for (let i = 0; i < attendees.length; i++) {
                 const attendee = attendees[i]
                 if (attendee instanceof Attendee) {
-                    if (attendee.isValid()) {
-                        this.evt.attendees.push(attendee)
+                    if (!attendee.isValid()) {
+                        throw 'Invalid Attendee'
                     }
+                    this.evt.attendees.push(attendee)
                 }
             }
         }
@@ -130,6 +144,9 @@ class EventBuilder {
     //https://tools.ietf.org/html/rfc5545#section-3.8.4.3
     addOrganizer(organizer) {
         if (organizer && organizer instanceof Organizer && organizer.isValid()) {
+            if (!organizer.isValid()) {
+                throw 'Invalid Organizer'
+            }
             this.evt.organizers.push(organizer)
         } else {
             throw 'organizer must be of type Organizer'
@@ -144,9 +161,10 @@ class EventBuilder {
             for (let i = 0; i < organizers.length; i++) {
                 const organizer = organizers[i]
                 if (organizer instanceof Organizer) {
-                    if (organizer.isValid()) {
-                        this.evt.organizers.push(organizer)
+                    if (!organizer.isValid()) {
+                        throw 'Invalid Organizer'
                     }
+                    this.evt.organizers.push(organizer)
                 }
             }
         }

@@ -23,7 +23,7 @@ c.setRefreshInterval(Timespan.WEEK, 10)
 
 var eb = new EventBuilder()
 eb.setDescription('Here is a test description')
-    .addOrganizer(new Organizer('testOrganizer@gmail.com', 'Test Organizer'))
+    .addOrganizer(new Organizer('testOrganizer@gmail.com', 'Test Organizer', null, 'sent-by@test.com'))
     .addAttendee(
         new Attendee(
             'testAttendee@gmail.com',
@@ -31,7 +31,7 @@ eb.setDescription('Here is a test description')
             null,
             'test-delegate-from@test.com',
             'test-delegate-to@test.com',
-            null,
+            'member@test.com',
             'test-sent-by@test.com',
             Role.CHAIR,
             CalendarUserType.INDIVIDUAL,

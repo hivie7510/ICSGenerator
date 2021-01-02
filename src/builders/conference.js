@@ -15,7 +15,10 @@ class Conference {
     }
 
     isValid() {
-        return this.featureTypes && this.label
+        if (!this.featureTypes && !this.label) {
+            throw 'Conference must contain a feature and a label'
+        }
+        return true
     }
 
     build() {

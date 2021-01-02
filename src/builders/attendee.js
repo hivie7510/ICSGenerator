@@ -1,6 +1,7 @@
 const CalendarUserType = require('../utilities/enums/calendarUserType')
 const Role = require('../utilities/enums/role')
 const RSVPType = require('../utilities/enums/RSVPType')
+const { isValidEmail } = require('../utilities/utils')
 //https://www.kanzaki.com/docs/ical/attendee.html
 //TODO: Add calendar user type
 class Attendee {
@@ -23,17 +24,51 @@ class Attendee {
         this.delegate = delegateFromEmail
         this.delegateTo = delegateToEmail
         this.role = role
+        this.sentBy = sentBy
         this.rsvpType = rsvpType
         this.member = member
     }
 
     isValid() {
-        return this.email && this.email.length > 0
+        let error = ''
+        if (this.email && this.email.length > 0) {
+            if (!isValidEmail(this.email)) {
+                error += 'Attendee email is invalid\r\n'
+            }
+        }
+
+        if (this.member && this.member.length > 0) {
+            if (!isValidEmail(this.member)) {
+                error += 'Member email is invalid\r\n'
+            }
+        }
+
+        if (this.delegateTo && this.delegateTo.length > 0) {
+            if (!isValidEmail(this.delegateTo)) {
+                error += 'Delegate-to email is invalid\r\n'
+            }
+        }
+
+        if (this.delegate && this.delegate.length > 0) {
+            if (!isValidEmail(this.delegate)) {
+                error += 'Delegate-from email is invalid\r\n'
+            }
+        }
+
+        if (this.sentBy && this.sentBy.length > 0) {
+            if (!isValidEmail(this.sentBy)) {
+                error += 'Sent By email is invalid\r\n'
+            }
+        }
+        if (error) {
+            throw error
+        }
+        return true
     }
 
     build() {
         if (!this.isValid()) {
-            throw 'Email not found or invalid format'
+            throw 'Invalid attendee'
         }
         let o = ''
         if (this.userType) {
