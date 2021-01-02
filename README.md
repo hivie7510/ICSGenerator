@@ -180,7 +180,7 @@ Sets the color of the event in the client
 Params:  
 Name | Type | Required for Calendar
 ---- | ---- | --------
-cssColorName | string array | No
+cssColorName | string | No  
 **NOTE: This string value must be a valid CSS3 Color Name**
 Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
 <br/>
@@ -223,6 +223,46 @@ Params:
 Name | Type | Required for Event
 ---- | ---- | --------
 summary |string| No
+<br/>
+
+# Objects<a name="objects"></a>
+
+## Attendee
+
+Properties
+| Name | Type
+| ------- | ------
+email | string  
+cn | string  
+directoryEntry | string  
+delegateFromEmail |string  
+delegateToEmail | string  
+member | string  
+sentBy | string  
+userType| CalendarUserType  
+role | Role  
+rsvpType | RSVPType
+
+<br/>
+
+## Conference
+
+Properties
+| Name | Type |
+| ------- | ------ |
+feature | string array
+label | string
+<br/>
+
+## Organizer
+
+Properties
+| Name | Type |
+| ------- | ------ |
+email | string  
+cn | string  
+directoryEntry | string  
+sentBy | string
 <br/>
 
 # Static Values<a name="static_values"></a>

@@ -19,7 +19,6 @@ var c = new CalendarBuilder()
     .addCategory('Meeting')
     .addCategories('my meeting, you meeting')
     .setName('HOME')
-    .setRefreshInterval(Timespan.WEEK, 10)
 
 var eb = new EventBuilder()
 eb.setDescription('Here is a test description')
