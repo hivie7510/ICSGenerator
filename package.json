@@ -2,7 +2,7 @@
   "name": "ics-standard-compliant-file-generator",
   "sideEffects": false,
   "version": "1.0.4",
-  "description": "Standards compliant ICS file generator",
+  "description": "This package is a standards compliant ICS file generator.  Currently it supports the vevent only, vtodo is in progress",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,7 +12,11 @@
     "type": "git",
     "url": "git+https://github.com/hivie7510/ICSGenerator.git"
   },
-  "author": "Heath Ivie",
+  "author": {
+    "name" : "Heath Ivie",
+    "email" : "hivie7510@gmail.com",
+    "url": "http://www.heathivie.com"
+  },
   "license": "Apache-2.0 License",
   "bugs": {
     "url": "https://github.com/hivie7510/ICSGenerator/issues"
@@ -40,6 +44,8 @@
     "google calendar",
     "yahoo calendar",
     "event",
-    "calendar"
+    "calendar",
+    "builder",
+    "standard"
   ]
 }
