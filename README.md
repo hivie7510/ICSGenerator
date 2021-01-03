@@ -181,9 +181,11 @@ organizers |Organizer array | No
 **setColor**
 Sets the color of the event in the client  
 Params:  
-Name | Type | Required for Calendar
----- | ---- | --------
-cssColorName | string | No  
+Name | Type | Required for Calendar |
+---- | ---- | -------- |
+cssColorName | string | No |
+
+&nbsp;&nbsp;
 **NOTE: This string value must be a valid CSS3 Color Name**
 Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
 &nbsp;&nbsp;
