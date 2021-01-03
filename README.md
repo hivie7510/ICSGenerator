@@ -10,7 +10,7 @@ In the end, you will be able to use this package to generate Events, To-dos, Jou
 
 1. [Builders](#builders)  
    1.1 [Calendar Builder](#calendar_builder)  
-   1.2 [Event Builder](#event_builder)
+   1.2 [Event Builder](#event_builder)  
    1.3 [Timespan Builder](#timespan_builder)
 2. [Objects](#objects)
 3. [Constants](#constants)
