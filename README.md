@@ -11,8 +11,9 @@ In the end, you will be able to use this package to generate Events, To-dos, Jou
 1. [Builders](#builders)  
    1.1 [Calendar Builder](#calendar_builder)  
    1.2 [Event Builder](#event_builder)
+   1.3 [Timespan Builder](#timespan_builder)
 2. [Objects](#objects)
-3. [Static Values](#static_values)
+3. [Constants](#constants)
 4. [Utility Methods](#utilities)
 5. [Examples](#examples)
    <br/>
@@ -193,12 +194,23 @@ Name | Type | Required for Event
 description |string | No
 <br/>
 
+**setDuration**  
+Sets a duration of the event
+Params:  
+Name | Type | Required for Event
+---- | ---- | --------
+description |string | No
+**NOTE: You cannot specify a duration and a end date time, you must choose 1**
+<br/>
+
 **setEnd**  
 Sets the end date of the event
 Params:  
 Name | Type | Required for Event
 ---- | ---- | --------
 date |Date | No
+**NOTE: You cannot specify a duration and a end date time, you must choose 1**
+
 <br/>
 
 **setLastModified**  
@@ -223,6 +235,53 @@ Params:
 Name | Type | Required for Event
 ---- | ---- | --------
 summary |string| No
+<br/>
+
+## Timespan Builder<a name="timespan_builder"></a>
+
+Reference https://tools.ietf.org/html/rfc5545#section-3.3.6
+
+### Methods
+
+**addSeconds**  
+Add seconds to the timespan
+Params:  
+Name | Type  
+---- | ----  
+second | integer
+
+ <br/>
+
+**addMinutes**  
+Add minutes to the timespan  
+Params:  
+Name | Type  
+---- | ----  
+minutes | integer
+<br/>
+
+**addHours**  
+Add hours to the timespan
+Params:  
+Name | Type  
+---- | ----  
+hours | integer
+<br/>
+
+**addDays**  
+Add days to the timespan  
+Params:  
+Name | Type  
+---- | ----  
+days | integer
+<br/>
+
+**addWeeks**  
+Add weeks to the timespan  
+Params:  
+Name | Type  
+---- | ----  
+weeks | integer
 <br/>
 
 # Objects<a name="objects"></a>
@@ -265,7 +324,7 @@ directoryEntry | string
 sentBy | string
 <br/>
 
-# Static Values<a name="static_values"></a>
+# Constants<a name="constants"></a>
 
 ### Availability
 

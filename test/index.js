@@ -4,12 +4,14 @@ const {
     Conference,
     Attendee,
     Organizer,
-    Timespan,
+    TimespanBuilder,
     FeatureType,
     Role,
     CalendarUserType,
     RSVPType
 } = require('../src/index')
+
+let s = new TimespanBuilder().addSeconds(200).addMinutes(200).addHours(200).addDays(200).addWeeks(10)
 
 //Create a new instance of the CalendarBuilder
 var c = new CalendarBuilder()
@@ -23,6 +25,7 @@ var c = new CalendarBuilder()
 var eb = new EventBuilder()
 eb.setDescription('Here is a test description')
     .addOrganizer(new Organizer('testOrganizer@gmail.com', 'Test Organizer', null, 'sent-by@test.com'))
+    .setDuration(s)
     .addAttendee(
         new Attendee(
             'testAttendee@gmail.com',
@@ -38,7 +41,7 @@ eb.setDescription('Here is a test description')
         )
     )
     .setStart(new Date(2021, 0, 1, 20, 00))
-    .setEnd(new Date(2021, 0, 2, 20, 00))
+    //.setEnd(new Date(2021, 0, 2, 20, 00))
     .setSummary('Party Time')
     .setDescription("We're having a pool party")
     .setImageUrl('http://www.myimage.com/thumbnail.jpg')

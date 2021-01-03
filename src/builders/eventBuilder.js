@@ -19,7 +19,8 @@ class EventBuilder {
             summary: null,
             description: null,
             categories: [],
-            color: null
+            color: null,
+            duration: null
         }
     }
 
@@ -55,6 +56,9 @@ class EventBuilder {
             }
             if (this.evt.description) {
                 e += `DESCRIPTION:${this.evt.description}\r\n`
+            }
+            if (this.evt.duration) {
+                e += `DURATION:${this.evt.duration.build()}\r\n`
             }
             if (this.evt.categories && Array.isArray(this.evt.categories)) {
                 this.evt.categories.forEach((cat) => (e += `CATEGORIES:${cat}\r\n`))
@@ -186,8 +190,22 @@ class EventBuilder {
         return this
     }
 
+    //https://tools.ietf.org/html/rfc5545#section-3.8.2.5
+    setDuration(timespan) {
+        if (this.evt.endDate) {
+            throw 'You must choose to supply either a duration or end date, but not both'
+        }
+        if (timespan) {
+            this.evt.duration = timespan
+        }
+        return this
+    }
+
     //https://tools.ietf.org/html/rfc5545#section-3.8.2.2
     setEnd(endDate) {
+        if (this.evt.duration) {
+            throw 'You must choose to supply either a duration or end date, but not both'
+        }
         if (endDate && endDate instanceof Date) {
             this.evt.endDate = endDate
             return this
