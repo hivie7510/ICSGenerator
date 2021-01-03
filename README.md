@@ -16,8 +16,8 @@ In the end, you will be able to use this package to generate Events, To-dos, Jou
 3. [Constants](#constants)
 4. [Utility Methods](#utilities)
 5. [Examples](#examples)
-   <br/>
-   <br/>
+   &nbsp;&nbsp;
+   &nbsp;&nbsp;
 
 # Builders<a name="builders"></a>
 
@@ -34,12 +34,12 @@ Name | Type | Required for Calendar
 ---- | ---- | --------
 builder | EventBuilder | Yes
 
- <br/>
+&nbsp;&nbsp;
 
 **build**  
 Compiles configuration and returns a ICalendar compliant string  
 Params: None  
-<br/>
+&nbsp;&nbsp;
 
 **addCategory**  
 Adds the category for the calendar  
@@ -47,7 +47,7 @@ Params:
 Name | Type | Required for Calendar
 ---- | ---- | --------
 category | string | No
-<br/>
+&nbsp;&nbsp;
 
 **addCategories**  
 Adds 1 or more categories for the calendar  
@@ -55,7 +55,7 @@ Params:
 Name | Type | Required for Calendar
 ---- | ---- | --------
 categories | string array | No
-<br/>
+&nbsp;&nbsp;
 
 **setColor**
 Sets the color of the calendar in the client  
@@ -65,7 +65,7 @@ Name | Type | Required for Calendar
 cssColorName | string array | No
 **NOTE: This string value must be a valid CSS3 Color Name**
 Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
-<br/>
+&nbsp;&nbsp;
 
 **setDescription**  
 Sets the description of the calendar that can be shown in the client  
@@ -73,7 +73,7 @@ Params:
 Name | Type | Required for Calendar
 ---- | ---- | --------
 description | string | No  
- <br/>
+ &nbsp;&nbsp;
 
 **setLastModified**  
 Sets the last modified date, allowing the client to check for more recent versions  
@@ -81,7 +81,7 @@ Params:
 Name | Type | Required for Calendar
 ---- | ---- | --------
 date | Date | No  
- <br/>
+ &nbsp;&nbsp;
 
 **setName**  
 Sets the name of the calendar that can be shown in the client  
@@ -89,7 +89,7 @@ Params:
 Name | Type | Required for Calendar
 ---- | ---- | --------
 name | string | No  
- <br/>
+ &nbsp;&nbsp;
 
 **setSource**  
 Sets the SOURCE property for the ICalendar core object
@@ -97,7 +97,7 @@ Params:
 Name | Type | Required for Calendar
 ---- | ---- | --------
 url | string | No  
- <br/>
+ &nbsp;&nbsp;
 
 **setRefreshInterval**  
 Sets the refresh interval determines the frequency of update checking  
@@ -106,7 +106,7 @@ Name | Type | Required for Calendar
 ---- | ---- | --------
 intervalType | Timespan | No  
 value | integer | No  
- <br/>
+ &nbsp;&nbsp;
 
 **setUrl**
 Sets the URL property for the ICalendar core object
@@ -114,7 +114,7 @@ Params:
 Name | Type | Required for Calendar
 ---- | ---- | --------
 url | string | No  
- <br/>
+ &nbsp;&nbsp;
 
 ## Event Builder<a name="event_builder"></a>
 
@@ -126,7 +126,7 @@ Params:
 Name | Type | Required for Event
 ---- | ---- | --------
 attendee | Attendee | No  
- <br/>
+ &nbsp;&nbsp;
 
 **addAttendees**  
 Add 1 or more attendees to the event object
@@ -134,7 +134,7 @@ Params:
 Name | Type | Required for Event
 ---- | ---- | --------
 attendees | Attendee array | No  
- <br/>
+ &nbsp;&nbsp;
 
 **addCategory**  
 Adds the category for the calendar  
@@ -142,7 +142,7 @@ Params:
 Name | Type | Required for Event
 ---- | ---- | --------
 category | string | No
-<br/>
+&nbsp;&nbsp;
 
 **addCategories**  
 Adds 1 or more categories for the calendar  
@@ -150,7 +150,7 @@ Params:
 Name | Type | Required for Event
 ---- | ---- | --------
 categories | string array | No
-<br/>
+&nbsp;&nbsp;
 
 **addConferenceInfo**  
 Adds conference reference to the event  
@@ -158,15 +158,15 @@ Params:
 Name | Type | Required for Event
 ---- | ---- | --------
 conference |Conference | No
-<br/>
+&nbsp;&nbsp;
 
-**addOrganizer**(Organizer organizer)  
+**addOrganizer**  
 Adds an organizer to the event  
 Params:  
 Name | Type | Required for Event
 ---- | ---- | --------
 organizer |Organizer | No
-<br/>
+&nbsp;&nbsp;
 
 **addOrganizers**  
 Adds an organizer to the event  
@@ -174,7 +174,7 @@ Params:
 Name | Type | Required for Event
 ---- | ---- | --------
 organizers |Organizer array | No
-<br/>
+&nbsp;&nbsp;
 
 **setColor**
 Sets the color of the event in the client  
@@ -184,7 +184,7 @@ Name | Type | Required for Calendar
 cssColorName | string | No  
 **NOTE: This string value must be a valid CSS3 Color Name**
 Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
-<br/>
+&nbsp;&nbsp;
 
 **setDescription**
 Sets a description of the event
@@ -192,7 +192,7 @@ Params:
 Name | Type | Required for Event
 ---- | ---- | --------
 description |string | No
-<br/>
+&nbsp;&nbsp;
 
 **setDuration**  
 Sets a duration of the event
@@ -201,8 +201,8 @@ Name | Type | Required for Event
 ---- | ---- | --------
 description |string | No
 **NOTE: You cannot specify a duration and a end date time, you must choose 1**
-<br/>
-
+&nbsp;&nbsp;
+&nbsp;&nbsp;
 **setEnd**  
 Sets the end date of the event
 Params:  
@@ -211,7 +211,7 @@ Name | Type | Required for Event
 date |Date | No
 **NOTE: You cannot specify a duration and a end date time, you must choose 1**
 
-<br/>
+&nbsp;&nbsp;
 
 **setLastModified**  
 Allows to **override** the last modified date which is defaulted to `new Date()`  
@@ -219,15 +219,15 @@ Params:
 Name | Type | Required for Event
 ---- | ---- | --------
 date |Date | No
-<br/>
+&nbsp;&nbsp;
 
-**setStart**(Date startDate)  
+**setStart**  
 Sets the start date for the event
 Params:  
 Name | Type | Required for Event
 ---- | ---- | --------
 date |Date | Yes
-<br/>
+&nbsp;&nbsp;
 
 **setSummary**
 Sets a summary of the event
@@ -235,7 +235,7 @@ Params:
 Name | Type | Required for Event
 ---- | ---- | --------
 summary |string| No
-<br/>
+&nbsp;&nbsp;
 
 ## Timespan Builder<a name="timespan_builder"></a>
 
@@ -250,7 +250,7 @@ Name | Type
 ---- | ----  
 second | integer
 
- <br/>
+&nbsp;&nbsp;
 
 **addMinutes**  
 Add minutes to the timespan  
@@ -258,7 +258,7 @@ Params:
 Name | Type  
 ---- | ----  
 minutes | integer
-<br/>
+&nbsp;&nbsp;
 
 **addHours**  
 Add hours to the timespan
@@ -266,7 +266,7 @@ Params:
 Name | Type  
 ---- | ----  
 hours | integer
-<br/>
+&nbsp;&nbsp;
 
 **addDays**  
 Add days to the timespan  
@@ -274,7 +274,7 @@ Params:
 Name | Type  
 ---- | ----  
 days | integer
-<br/>
+&nbsp;&nbsp;
 
 **addWeeks**  
 Add weeks to the timespan  
@@ -282,7 +282,7 @@ Params:
 Name | Type  
 ---- | ----  
 weeks | integer
-<br/>
+&nbsp;&nbsp;
 
 # Objects<a name="objects"></a>
 
@@ -302,7 +302,7 @@ userType| CalendarUserType
 role | Role  
 rsvpType | RSVPType
 
-<br/>
+&nbsp;&nbsp;
 
 ## Conference
 
@@ -311,7 +311,7 @@ Properties
 | ------- | ------ |
 feature | string array
 label | string
-<br/>
+&nbsp;&nbsp;
 
 ## Organizer
 
@@ -322,7 +322,7 @@ email | string
 cn | string  
 directoryEntry | string  
 sentBy | string
-<br/>
+&nbsp;&nbsp;
 
 # Constants<a name="constants"></a>
 
@@ -335,7 +335,7 @@ sentBy | string
 | BUSYUNAVAILABLE | BUSY-UNAVAILABLE |
 | BUSYTENTATIVE   | BUSY-TENTATIVE   |
 
-<br/>
+&nbsp;&nbsp;
 
 ### CalendarUserType
 
@@ -347,7 +347,7 @@ sentBy | string
 | ROOM       | ROOM       |
 | UNKNOWN    | UNKNOWN    |
 
-<br/>
+&nbsp;&nbsp;
 
 ### DisplayType
 
@@ -358,7 +358,7 @@ sentBy | string
 | FULLSIZE  | FULLSIZE  |
 | THUMBNAIL | THUMBNAIL |
 
-<br/>
+&nbsp;&nbsp;
 
 ### FeatureType
 
@@ -372,7 +372,7 @@ sentBy | string
 | SCREEN    | SCREEN    |
 | VIDEO     | VIDEO     |
 
-<br/>
+&nbsp;&nbsp;
 
 ### Role
 
@@ -383,7 +383,7 @@ sentBy | string
 | OPTPARTICIPANT | OPT-PARTICIPANT |
 | NONPARTICIPANT | NON-PARTICIPANT |
 
-<br/>
+&nbsp;&nbsp;
 
 ### RSVPType
 
@@ -392,7 +392,7 @@ sentBy | string
 | TRUE  | TRUE  |
 | FALSE | FALSE |
 
-<br/>
+&nbsp;&nbsp;
 
 ### Timespan
 
@@ -405,7 +405,7 @@ sentBy | string
 | MONTH  | m     |
 | YEAR   | y     |
 
-<br/>
+&nbsp;&nbsp;
 
 # Utilities<a name="utilities"></a>
 
@@ -414,8 +414,8 @@ Formats a valid date to the required date format
 Params:  
 Name | Type |  
 ---- | ---- |
-date | Date |  
- <br/>
+date | Date |
+&nbsp;&nbsp;
 
 **isValidEmail**  
 Validates an email
@@ -423,7 +423,7 @@ Params:
 Name | Type |  
 ---- | ---- |
 email | string |  
- <br/>
+ &nbsp;&nbsp;
 
 # Examples<a name="examples"></a>
 

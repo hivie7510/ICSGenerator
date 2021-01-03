@@ -1,7 +1,7 @@
 {
   "name": "ics-standard-compliant-file-generator",
   "sideEffects": false,
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "This package is a standards compliant ICS file generator.  Currently it supports the vevent only, vtodo is in progress",
   "main": "index.js",
   "scripts": {
@@ -37,6 +37,7 @@
     "vcalendar",
     "generator",
     "alarms",
+    "valarm",
     "outlook",
     "gmail",
     "thunderbird",
