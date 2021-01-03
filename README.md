@@ -30,9 +30,9 @@ Reference https://tools.ietf.org/html/rfc5545#section-3.4
 **addEventBuilder**  
 builder represents a single event that has been constructed using the Event Builder  
 Params:  
-Name | Type | Required for Calendar
----- | ---- | --------
-builder | EventBuilder | Yes
+Name | Type | Required for Calendar |  
+---- | ---- | -------- |  
+builder | EventBuilder | Yes |
 
 &nbsp;&nbsp;
 
@@ -44,17 +44,17 @@ Params: None
 **addCategory**  
 Adds the category for the calendar  
 Params:  
-Name | Type | Required for Calendar
----- | ---- | --------
-category | string | No
+Name | Type | Required for Calendar |  
+---- | ---- | -------- |  
+category | string | No |  
 &nbsp;&nbsp;
 
 **addCategories**  
 Adds 1 or more categories for the calendar  
 Params:  
-Name | Type | Required for Calendar
----- | ---- | --------
-categories | string array | No
+Name | Type | Required for Calendar |  
+---- | ---- | -------- |  
+categories | string array | No |  
 &nbsp;&nbsp;
 
 **setColor**
@@ -72,50 +72,50 @@ Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
 **setDescription**  
 Sets the description of the calendar that can be shown in the client  
 Params:  
-Name | Type | Required for Calendar
----- | ---- | --------
-description | string | No  
+Name | Type | Required for Calendar |  
+---- | ---- | -------- |  
+description | string | No |  
  &nbsp;&nbsp;
 
 **setLastModified**  
 Sets the last modified date, allowing the client to check for more recent versions  
 Params:  
-Name | Type | Required for Calendar
----- | ---- | --------
-date | Date | No  
+Name | Type | Required for Calendar |  
+---- | ---- | -------- |  
+date | Date | No |  
  &nbsp;&nbsp;
 
 **setName**  
 Sets the name of the calendar that can be shown in the client  
 Params:  
-Name | Type | Required for Calendar
----- | ---- | --------
-name | string | No  
+Name | Type | Required for Calendar |  
+---- | ---- | -------- |  
+name | string | No |  
  &nbsp;&nbsp;
 
 **setSource**  
 Sets the SOURCE property for the ICalendar core object
 Params:  
-Name | Type | Required for Calendar
----- | ---- | --------
-url | string | No  
+Name | Type | Required for Calendar |  
+---- | ---- | -------- |  
+url | string | No |  
  &nbsp;&nbsp;
 
 **setRefreshInterval**  
 Sets the refresh interval determines the frequency of update checking  
 Params:  
-Name | Type | Required for Calendar
----- | ---- | --------
-intervalType | Timespan | No  
-value | integer | No  
+Name | Type | Required for Calendar |  
+---- | ---- | -------- |  
+intervalType | Timespan | No |  
+value | integer | No |  
  &nbsp;&nbsp;
 
 **setUrl**
 Sets the URL property for the ICalendar core object
 Params:  
-Name | Type | Required for Calendar
----- | ---- | --------
-url | string | No  
+Name | Type | Required for Calendar |  
+---- | ---- | -------- |  
+url | string | No |  
  &nbsp;&nbsp;
 
 ## Event Builder<a name="event_builder"></a>
@@ -125,57 +125,57 @@ Reference: https://tools.ietf.org/html/rfc5545#section-3.6.1
 **addAttendee**  
 Add an attendee to the event object
 Params:  
-Name | Type | Required for Event
----- | ---- | --------
-attendee | Attendee | No  
+Name | Type | Required for Event |  
+---- | ---- | -------- |  
+attendee | Attendee | No |  
  &nbsp;&nbsp;
 
 **addAttendees**  
 Add 1 or more attendees to the event object
 Params:  
-Name | Type | Required for Event
----- | ---- | --------
-attendees | Attendee array | No  
- &nbsp;&nbsp;
+Name | Type | Required for Event |
+---- | ---- | -------- |
+attendees | Attendee array | No |
+&nbsp;&nbsp;
 
 **addCategory**  
 Adds the category for the calendar  
 Params:  
-Name | Type | Required for Event
----- | ---- | --------
-category | string | No
+Name | Type | Required for Event |
+---- | ---- | -------- |
+category | string | No |
 &nbsp;&nbsp;
 
 **addCategories**  
 Adds 1 or more categories for the calendar  
 Params:  
-Name | Type | Required for Event
----- | ---- | --------
-categories | string array | No
+Name | Type | Required for Event |
+---- | ---- | -------- |
+categories | string array | No |
 &nbsp;&nbsp;
 
 **addConferenceInfo**  
 Adds conference reference to the event  
 Params:  
-Name | Type | Required for Event
----- | ---- | --------
-conference |Conference | No
+Name | Type | Required for Event |
+---- | ---- | -------- |
+conference |Conference | No |
 &nbsp;&nbsp;
 
 **addOrganizer**  
 Adds an organizer to the event  
 Params:  
-Name | Type | Required for Event
----- | ---- | --------
-organizer |Organizer | No
+Name | Type | Required for Event |
+---- | ---- | -------- |
+organizer |Organizer | No |
 &nbsp;&nbsp;
 
 **addOrganizers**  
 Adds an organizer to the event  
 Params:  
-Name | Type | Required for Event
----- | ---- | --------
-organizers |Organizer array | No
+Name | Type | Required for Event |
+---- | ---- | -------- |
+organizers |Organizer array | No |
 &nbsp;&nbsp;
 
 **setColor**
@@ -193,26 +193,26 @@ Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
 **setDescription**
 Sets a description of the event
 Params:  
-Name | Type | Required for Event
----- | ---- | --------
-description |string | No
+Name | Type | Required for Event |
+---- | ---- | -------- |
+description |string | No |  
 &nbsp;&nbsp;
 
 **setDuration**  
 Sets a duration of the event
 Params:  
-Name | Type | Required for Event
----- | ---- | --------
-description |string | No
+Name | Type | Required for Event |  
+---- | ---- | -------- |  
+description |string | No |  
 **NOTE: You cannot specify a duration and a end date time, you must choose 1**
 &nbsp;&nbsp;
 &nbsp;&nbsp;
 **setEnd**  
 Sets the end date of the event
 Params:  
-Name | Type | Required for Event
----- | ---- | --------
-date |Date | No
+Name | Type | Required for Event |  
+---- | ---- | -------- |  
+date |Date | No |  
 **NOTE: You cannot specify a duration and a end date time, you must choose 1**
 
 &nbsp;&nbsp;
@@ -220,25 +220,25 @@ date |Date | No
 **setLastModified**  
 Allows to **override** the last modified date which is defaulted to `new Date()`  
 Params:  
-Name | Type | Required for Event
----- | ---- | --------
-date |Date | No
+Name | Type | Required for Event |  
+---- | ---- | -------- |  
+date |Date | No |  
 &nbsp;&nbsp;
 
 **setStart**  
 Sets the start date for the event
 Params:  
-Name | Type | Required for Event
----- | ---- | --------
-date |Date | Yes
+Name | Type | Required for Event |  
+---- | ---- | -------- |  
+date |Date | Yes |  
 &nbsp;&nbsp;
 
 **setSummary**
 Sets a summary of the event
 Params:  
-Name | Type | Required for Event
----- | ---- | --------
-summary |string| No
+Name | Type | Required for Event |  
+---- | ---- | -------- |  
+summary |string| No |  
 &nbsp;&nbsp;
 
 ## Timespan Builder<a name="timespan_builder"></a>
@@ -250,42 +250,42 @@ Reference https://tools.ietf.org/html/rfc5545#section-3.3.6
 **addSeconds**  
 Add seconds to the timespan
 Params:  
-Name | Type  
----- | ----  
-second | integer
+Name | Type |  
+---- | ---- |  
+second | integer |
 
 &nbsp;&nbsp;
 
 **addMinutes**  
 Add minutes to the timespan  
 Params:  
-Name | Type  
----- | ----  
-minutes | integer
+Name | Type |  
+---- | ---- |  
+minutes | integer |  
 &nbsp;&nbsp;
 
 **addHours**  
 Add hours to the timespan
 Params:  
-Name | Type  
----- | ----  
-hours | integer
+Name | Type |  
+---- | ---- |  
+hours | integer |  
 &nbsp;&nbsp;
 
 **addDays**  
 Add days to the timespan  
 Params:  
-Name | Type  
----- | ----  
-days | integer
+Name | Type |  
+---- | ---- |  
+days | integer |  
 &nbsp;&nbsp;
 
 **addWeeks**  
 Add weeks to the timespan  
 Params:  
-Name | Type  
----- | ----  
-weeks | integer
+Name | Type |  
+---- | ---- |  
+weeks | integer |  
 &nbsp;&nbsp;
 
 # Objects<a name="objects"></a>
