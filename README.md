@@ -46,7 +46,8 @@ Adds the category for the calendar
 Params:  
 Name | Type | Required for Calendar |  
 ---- | ---- | -------- |  
-category | string | No |  
+category | string | No |
+
 &nbsp;&nbsp;
 
 **addCategories**  
@@ -54,7 +55,8 @@ Adds 1 or more categories for the calendar
 Params:  
 Name | Type | Required for Calendar |  
 ---- | ---- | -------- |  
-categories | string array | No |  
+categories | string array | No |
+
 &nbsp;&nbsp;
 
 **setColor**
@@ -74,32 +76,36 @@ Sets the description of the calendar that can be shown in the client
 Params:  
 Name | Type | Required for Calendar |  
 ---- | ---- | -------- |  
-description | string | No |  
- &nbsp;&nbsp;
+description | string | No |
+
+&nbsp;&nbsp;
 
 **setLastModified**  
 Sets the last modified date, allowing the client to check for more recent versions  
 Params:  
 Name | Type | Required for Calendar |  
 ---- | ---- | -------- |  
-date | Date | No |  
- &nbsp;&nbsp;
+date | Date | No |
+
+&nbsp;&nbsp;
 
 **setName**  
 Sets the name of the calendar that can be shown in the client  
 Params:  
 Name | Type | Required for Calendar |  
 ---- | ---- | -------- |  
-name | string | No |  
- &nbsp;&nbsp;
+name | string | No |
+
+&nbsp;&nbsp;
 
 **setSource**  
 Sets the SOURCE property for the ICalendar core object
 Params:  
 Name | Type | Required for Calendar |  
 ---- | ---- | -------- |  
-url | string | No |  
- &nbsp;&nbsp;
+url | string | No |
+
+&nbsp;&nbsp;
 
 **setRefreshInterval**  
 Sets the refresh interval determines the frequency of update checking  
@@ -107,16 +113,18 @@ Params:
 Name | Type | Required for Calendar |  
 ---- | ---- | -------- |  
 intervalType | Timespan | No |  
-value | integer | No |  
- &nbsp;&nbsp;
+value | integer | No |
+
+&nbsp;&nbsp;
 
 **setUrl**
 Sets the URL property for the ICalendar core object
 Params:  
 Name | Type | Required for Calendar |  
 ---- | ---- | -------- |  
-url | string | No |  
- &nbsp;&nbsp;
+url | string | No |
+
+&nbsp;&nbsp;
 
 ## Event Builder<a name="event_builder"></a>
 
@@ -127,8 +135,9 @@ Add an attendee to the event object
 Params:  
 Name | Type | Required for Event |  
 ---- | ---- | -------- |  
-attendee | Attendee | No |  
- &nbsp;&nbsp;
+attendee | Attendee | No |
+
+&nbsp;&nbsp;
 
 **addAttendees**  
 Add 1 or more attendees to the event object
@@ -136,6 +145,7 @@ Params:
 Name | Type | Required for Event |
 ---- | ---- | -------- |
 attendees | Attendee array | No |
+
 &nbsp;&nbsp;
 
 **addCategory**  
@@ -144,6 +154,7 @@ Params:
 Name | Type | Required for Event |
 ---- | ---- | -------- |
 category | string | No |
+
 &nbsp;&nbsp;
 
 **addCategories**  
@@ -152,6 +163,7 @@ Params:
 Name | Type | Required for Event |
 ---- | ---- | -------- |
 categories | string array | No |
+
 &nbsp;&nbsp;
 
 **addConferenceInfo**  
@@ -160,6 +172,7 @@ Params:
 Name | Type | Required for Event |
 ---- | ---- | -------- |
 conference |Conference | No |
+
 &nbsp;&nbsp;
 
 **addOrganizer**  
@@ -168,6 +181,7 @@ Params:
 Name | Type | Required for Event |
 ---- | ---- | -------- |
 organizer |Organizer | No |
+
 &nbsp;&nbsp;
 
 **addOrganizers**  
@@ -176,6 +190,7 @@ Params:
 Name | Type | Required for Event |
 ---- | ---- | -------- |
 organizers |Organizer array | No |
+
 &nbsp;&nbsp;
 
 **setColor**
@@ -195,7 +210,8 @@ Sets a description of the event
 Params:  
 Name | Type | Required for Event |
 ---- | ---- | -------- |
-description |string | No |  
+description |string | No |
+
 &nbsp;&nbsp;
 
 **setDuration**  
