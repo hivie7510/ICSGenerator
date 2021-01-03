@@ -229,7 +229,8 @@ Sets the end date of the event
 Params:  
 Name | Type | Required for Event |  
 ---- | ---- | -------- |  
-date |Date | No |  
+date |Date | No |
+
 **NOTE: You cannot specify a duration and a end date time, you must choose 1**
 
 &nbsp;&nbsp;
@@ -239,7 +240,8 @@ Allows to **override** the last modified date which is defaulted to `new Date()`
 Params:  
 Name | Type | Required for Event |  
 ---- | ---- | -------- |  
-date |Date | No |  
+date |Date | No |
+
 &nbsp;&nbsp;
 
 **setStart**  
@@ -247,7 +249,8 @@ Sets the start date for the event
 Params:  
 Name | Type | Required for Event |  
 ---- | ---- | -------- |  
-date |Date | Yes |  
+date |Date | Yes |
+
 &nbsp;&nbsp;
 
 **setSummary**
@@ -255,7 +258,8 @@ Sets a summary of the event
 Params:  
 Name | Type | Required for Event |  
 ---- | ---- | -------- |  
-summary |string| No |  
+summary |string| No |
+
 &nbsp;&nbsp;
 
 ## Timespan Builder<a name="timespan_builder"></a>
@@ -278,7 +282,8 @@ Add minutes to the timespan
 Params:  
 Name | Type |  
 ---- | ---- |  
-minutes | integer |  
+minutes | integer |
+
 &nbsp;&nbsp;
 
 **addHours**  
@@ -286,7 +291,8 @@ Add hours to the timespan
 Params:  
 Name | Type |  
 ---- | ---- |  
-hours | integer |  
+hours | integer |
+
 &nbsp;&nbsp;
 
 **addDays**  
@@ -294,7 +300,8 @@ Add days to the timespan
 Params:  
 Name | Type |  
 ---- | ---- |  
-days | integer |  
+days | integer |
+
 &nbsp;&nbsp;
 
 **addWeeks**  
@@ -302,7 +309,8 @@ Add weeks to the timespan
 Params:  
 Name | Type |  
 ---- | ---- |  
-weeks | integer |  
+weeks | integer |
+
 &nbsp;&nbsp;
 
 # Objects<a name="objects"></a>
