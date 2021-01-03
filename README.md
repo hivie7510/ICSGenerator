@@ -340,6 +340,7 @@ Properties
 | ------- | ------ |
 feature | string array
 label | string
+
 &nbsp;&nbsp;
 
 ## Organizer
@@ -351,6 +352,7 @@ email | string
 cn | string  
 directoryEntry | string  
 sentBy | string
+
 &nbsp;&nbsp;
 
 # Constants<a name="constants"></a>
@@ -444,6 +446,7 @@ Params:
 Name | Type |  
 ---- | ---- |
 date | Date |
+
 &nbsp;&nbsp;
 
 **isValidEmail**  
@@ -451,8 +454,9 @@ Validates an email
 Params:  
 Name | Type |  
 ---- | ---- |
-email | string |  
- &nbsp;&nbsp;
+email | string |
+
+&nbsp;&nbsp;
 
 # Examples<a name="examples"></a>
 
