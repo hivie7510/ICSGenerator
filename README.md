@@ -203,10 +203,11 @@ Sets a duration of the event
 Params:  
 Name | Type | Required for Event |  
 ---- | ---- | -------- |  
-description |string | No |  
-**NOTE: You cannot specify a duration and a end date time, you must choose 1**
+description |string | No |
+
+**NOTE: You cannot specify a duration and a end date time, you must choose 1**  
 &nbsp;&nbsp;
-&nbsp;&nbsp;
+&nbsp;&nbsp;  
 **setEnd**  
 Sets the end date of the event
 Params:  
