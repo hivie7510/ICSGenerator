@@ -62,7 +62,8 @@ Sets the color of the calendar in the client
 Params:  
 Name | Type | Required for Calendar
 ---- | ---- | --------
-cssColorName | string array | No  
+cssColorName | string array | No
+
 &nbsp;&nbsp;
 **NOTE: This string value must be a valid CSS3 Color Name**
 Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
