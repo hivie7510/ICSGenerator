@@ -16,7 +16,7 @@ In the end, you will be able to use this package to generate Events, To-dos, Jou
 3. [Constants](#constants)
 4. [Utility Methods](#utilities)
 5. [Examples](#examples)
-   &nbsp;&nbsp;
+   &nbsp;&nbsp;  
    &nbsp;&nbsp;
 
 # Builders<a name="builders"></a>
@@ -66,8 +66,8 @@ Name | Type | Required for Calendar |
 ---- | ---- | -------- |
 cssColorName | string array | No |
 
-&nbsp;&nbsp;
-**NOTE: This string value must be a valid CSS3 Color Name**
+&nbsp;&nbsp;  
+**NOTE: This string value must be a valid CSS3 Color Name**  
 Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
 &nbsp;&nbsp;
 
@@ -200,8 +200,8 @@ Name | Type | Required for Calendar |
 ---- | ---- | -------- |
 cssColorName | string | No |
 
-&nbsp;&nbsp;
-**NOTE: This string value must be a valid CSS3 Color Name**
+&nbsp;&nbsp;  
+**NOTE: This string value must be a valid CSS3 Color Name**  
 Reference: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
 &nbsp;&nbsp;
 
@@ -222,7 +222,7 @@ Name | Type | Required for Event |
 description |string | No |
 
 **NOTE: You cannot specify a duration and a end date time, you must choose 1**  
-&nbsp;&nbsp;
+&nbsp;&nbsp;  
 &nbsp;&nbsp;  
 **setEnd**  
 Sets the end date of the event
