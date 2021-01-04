@@ -425,19 +425,6 @@ sentBy | string
 
 &nbsp;&nbsp;
 
-### Timespan
-
-| Name   | Value |
-| ------ | ----- |
-| MINUTE | m     |
-| HOUR   | h     |
-| DAY    | d     |
-| WEEK   | w     |
-| MONTH  | m     |
-| YEAR   | y     |
-
-&nbsp;&nbsp;
-
 # Utilities<a name="utilities"></a>
 
 **formatDate**  
