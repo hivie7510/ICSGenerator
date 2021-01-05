@@ -4,20 +4,134 @@
 
 This package is a standards compliant generator of ICS files.
 
-In the end, you will be able to use this package to generate Events, To-dos, Journal entires and Free/Busy entries.
+In the end, you will be able to use this package to generate events, to-dos, journal entries, and free/busy entries.
 
 # Table of Contents
 
-1. [Builders](#builders)  
-   1.1 [Calendar Builder](#calendar_builder)  
-   1.2 [Event Builder](#event_builder)  
-   1.3 [Timespan Builder](#timespan_builder)
-2. [Objects](#objects)
-3. [Constants](#constants)
-4. [Utility Methods](#utilities)
-5. [Examples](#examples)
-   &nbsp;&nbsp;  
-   &nbsp;&nbsp;
+<ol>
+<li>[Examples](#examples)</li>
+<li>[Api](#api)
+<ol>
+    <li>[Builders](#builders)
+        <ol>
+            <li>[Calendar Builder](#calendar_builder)</li>
+            <li>[Event Builder](#event_builder)</li>
+            <li>[Timespan Builder](#timespan_builder)</li>
+        </ol>
+    </li>
+    <li>[Objects](#objects)   
+        <ol>
+            <li>[Attendee](#attendee)</li>
+            <li>[Conference](#conference)</li>
+            <li>[Organizer](#organizer)</li>
+        </ol>
+    </li>
+    <li>[Constants](#constants)   
+        <ol>
+            <li>[Availability](#availability)</li>
+            <li>[Calendar User Type](#calendar_user_type)</li>
+            <li>[Display](#display)</li>
+            <li>[Feature Type](#feature_type)</li>
+            <li>[Role](#role)</li>
+            <li>[Rsvp Type](#rsvp)</li>
+        </ol>
+    </li>
+    <li>[Utility Methods](#utilities)  
+        <ol>
+            <li>[formatDate](#format_date)</li>
+            <li>[validateEmail](#validate_email)</li> 
+        </ol>
+    </li>
+ 
+</ol></li>
+
+    &nbsp;&nbsp;
+    &nbsp;&nbsp;
+
+# Examples<a name="examples"></a>
+
+## Simple Event
+
+```
+const {
+    CalendarBuilder,
+    EventBuilder,
+    Attendee,
+    Organizer,
+    Role,
+    CalendarUserType,
+    RSVPType
+} = require('ics-standard-compliant-file-generator')
+
+/*
+
+    To import the package you will need to either run this example outside of the root
+    or modify temporarily the package.json to change the name.  Otherwise, the package
+    will not install because there will be a name conflict
+
+*/
+
+/*
+
+    Start with creating a Calendar Builder, this does not need to happen at first but it is logical to start here
+    The Calendar Builder is the container and the actual generator of the *.ics file
+
+*/
+var c = new CalendarBuilder()
+    .setUrl('http://www.mycalendar.com')
+    .setSource('http://www.mycalendar.com/test.ics')
+    .setColor('red')
+    .addCategory('Meeting')
+    .addCategories('my meeting, you meeting')
+    .setName('HOME')
+
+/*
+
+    Now lets build a single event by instantiating an Event Builder
+    We can create the bare minimum required for an event
+
+*/
+var eb = new EventBuilder()
+eb.setDescription('Here is a test description')
+    .addOrganizer(new Organizer('testOrganizer@gmail.com', 'Test Organizer', null, 'sent-by@test.com'))
+    .addAttendee(
+        new Attendee(
+            'testAttendee@gmail.com',
+            'Test Attendee',
+            null,
+            'test-delegate-from@test.com',
+            'test-delegate-to@test.com',
+            'member@test.com',
+            'test-sent-by@test.com',
+            Role.CHAIR,
+            CalendarUserType.INDIVIDUAL,
+            RSVPType.TRUE
+        )
+    )
+    .setStart(new Date(2021, 0, 1, 20, 00))
+    .setEnd(new Date(2021, 0, 2, 20, 00))
+    .setSummary('Party Time')
+    .setDescription("We're having a pool party")
+    .setImageUrl('http://www.myimage.com/thumbnail.jpg')
+    .addConferenceInfo(new Conference(FeatureType.AUDIO, 'Moderator dial-in:tel:+1-412-555-0123,,,654321'))
+    .addConferenceInfo(
+        new Conference([FeatureType.AUDIO, FeatureType.MODERATOR], 'Moderator dial-in:tel:+1-412-555-0123,,,654321')
+    )
+
+//Now that we have described our event, we can add it to the Calendar Builder
+c.addEventBuilder(eb)
+
+//All that is left is to call the build the file contents
+let icsContent = c.build()
+
+//At this point you use which ever method you want to use to create the file
+//For testing I just pushed the console output to a file
+console.log(icsContent)
+
+//The call from the terminal then becomes:
+// node index.js > test.ics
+
+```
 
 # Builders<a name="builders"></a>
 
@@ -315,7 +429,7 @@ weeks | integer |
 
 # Objects<a name="objects"></a>
 
-## Attendee
+## Attendee<a name="attendee"></a>
 
 Properties
 | Name | Type
@@ -333,7 +447,7 @@ rsvpType | RSVPType
 
 &nbsp;&nbsp;
 
-## Conference
+## Conference<a name="conference"></a>
 
 Properties
 | Name | Type |
@@ -343,7 +457,7 @@ label | string
 
 &nbsp;&nbsp;
 
-## Organizer
+## Organizer<a name="organizer"></a>
 
 Properties
 | Name | Type |
@@ -357,7 +471,7 @@ sentBy | string
 
 # Constants<a name="constants"></a>
 
-### Availability
+### Availability<a name="availability"></a>
 
 | Name            | Value            |
 | --------------- | ---------------- |
@@ -368,7 +482,7 @@ sentBy | string
 
 &nbsp;&nbsp;
 
-### CalendarUserType
+### CalendarUserType<a name="calendar_user_type"></a>
 
 | Name       | Value      |
 | ---------- | ---------- |
@@ -380,7 +494,7 @@ sentBy | string
 
 &nbsp;&nbsp;
 
-### DisplayType
+### DisplayType<a name="display"></a>
 
 | Name      | Value     |
 | --------- | --------- |
@@ -391,7 +505,7 @@ sentBy | string
 
 &nbsp;&nbsp;
 
-### FeatureType
+### FeatureType<a name="feature_type"></a>
 
 | Name      | Value     |
 | --------- | --------- |
@@ -405,7 +519,7 @@ sentBy | string
 
 &nbsp;&nbsp;
 
-### Role
+### Role<a name="role"></a>
 
 | Name           | Value           |
 | -------------- | --------------- |
@@ -416,7 +530,7 @@ sentBy | string
 
 &nbsp;&nbsp;
 
-### RSVPType
+### RSVPType<a name="rsvp"></a>
 
 | Name  | Value |
 | ----- | ----- |
@@ -427,7 +541,7 @@ sentBy | string
 
 # Utilities<a name="utilities"></a>
 
-**formatDate**  
+**formatDate**<a name="format_date"></a>
 Formats a valid date to the required date format  
 Params:  
 Name | Type |  
@@ -436,7 +550,7 @@ date | Date |
 
 &nbsp;&nbsp;
 
-**isValidEmail**  
+**isValidEmail**<a name="validate_email"></a>
 Validates an email
 Params:  
 Name | Type |  
@@ -444,88 +558,3 @@ Name | Type |
 email | string |
 
 &nbsp;&nbsp;
-
-# Examples<a name="examples"></a>
-
-## Simple Event
-
-```
-const {
-    CalendarBuilder,
-    EventBuilder,
-    Attendee,
-    Organizer,
-    Role,
-    CalendarUserType,
-    RSVPType
-} = require('ics-standard-compliant-file-generator')
-
-/*
-
-    To import the package you will need to either run this example outside of the root
-    or modify temporarily the package.json to change the name.  Otherwise, the package
-    will not install because there will be a name conflict
-
-*/
-
-/*
-
-    Start with creating a Calendar Builder, this does not need to happen at first but it is logical to start here
-    The Calendar Builder is the container and the actual generator of the *.ics file
-
-*/
-var c = new CalendarBuilder()
-    .setUrl('http://www.mycalendar.com')
-    .setSource('http://www.mycalendar.com/test.ics')
-    .setColor('red')
-    .addCategory('Meeting')
-    .addCategories('my meeting, you meeting')
-    .setName('HOME')
-
-/*
-
-    Now lets build a single event by instantiating an Event Builder
-    We can create the bare minimum required for an event
-
-*/
-var eb = new EventBuilder()
-eb.setDescription('Here is a test description')
-    .addOrganizer(new Organizer('testOrganizer@gmail.com', 'Test Organizer', null, 'sent-by@test.com'))
-    .addAttendee(
-        new Attendee(
-            'testAttendee@gmail.com',
-            'Test Attendee',
-            null,
-            'test-delegate-from@test.com',
-            'test-delegate-to@test.com',
-            'member@test.com',
-            'test-sent-by@test.com',
-            Role.CHAIR,
-            CalendarUserType.INDIVIDUAL,
-            RSVPType.TRUE
-        )
-    )
-    .setStart(new Date(2021, 0, 1, 20, 00))
-    .setEnd(new Date(2021, 0, 2, 20, 00))
-    .setSummary('Party Time')
-    .setDescription("We're having a pool party")
-    .setImageUrl('http://www.myimage.com/thumbnail.jpg')
-    .addConferenceInfo(new Conference(FeatureType.AUDIO, 'Moderator dial-in:tel:+1-412-555-0123,,,654321'))
-    .addConferenceInfo(
-        new Conference([FeatureType.AUDIO, FeatureType.MODERATOR], 'Moderator dial-in:tel:+1-412-555-0123,,,654321')
-    )
-
-//Now that we have described our event, we can add it to the Calendar Builder
-c.addEventBuilder(eb)
-
-//All that is left is to call the build the file contents
-let icsContent = c.build()
-
-//At this point you use which ever method you want to use to create the file
-//For testing I just pushed the console output to a file
-console.log(icsContent)
-
-//The call from the terminal then becomes:
-// node index.js > test.ics
-
-```

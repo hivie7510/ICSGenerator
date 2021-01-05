@@ -1,7 +1,7 @@
 {
-  "name": "ics-standard-compliant-file-generator",
+  "name": "ics-standard-builder",
   "sideEffects": false,
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "This package is a standards compliant ICS file generator.  Currently it supports the vevent only, vtodo is in progress",
   "main": "index.js",
   "scripts": {
@@ -32,6 +32,8 @@
   },
   "keywords": [
     "ics",
+    "react",
+    "node",
     "icalendar",
     "vevent",
     "vcalendar",
@@ -47,6 +49,6 @@
     "event",
     "calendar",
     "builder",
-    "standard"
+    "standard" 
   ]
 }
