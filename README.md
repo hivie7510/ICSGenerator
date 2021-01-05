@@ -1,6 +1,6 @@
-# ICSGenerator
+# ICS Standard Builder
 
-[![npm version](https://img.shields.io/npm/v/ics-standard-compliant-file-generator.svg?style=flat)](https://www.npmjs.com/package/ics-standard-compliant-file-generator)
+[![npm version](https://img.shields.io/npm/v/ics-standard-builder.svg?style=flat)](https://www.npmjs.com/package/ics-standard-builder)
 
 This package is a standards compliant generator of ICS files.
 
@@ -8,45 +8,28 @@ In the end, you will be able to use this package to generate events, to-dos, jou
 
 # Table of Contents
 
-<ol>
-<li>[Examples](#examples)</li>
-<li>[Api](#api)
-<ol>
-    <li>[Builders](#builders)
-        <ol>
-            <li>[Calendar Builder](#calendar_builder)</li>
-            <li>[Event Builder](#event_builder)</li>
-            <li>[Timespan Builder](#timespan_builder)</li>
-        </ol>
-    </li>
-    <li>[Objects](#objects)   
-        <ol>
-            <li>[Attendee](#attendee)</li>
-            <li>[Conference](#conference)</li>
-            <li>[Organizer](#organizer)</li>
-        </ol>
-    </li>
-    <li>[Constants](#constants)   
-        <ol>
-            <li>[Availability](#availability)</li>
-            <li>[Calendar User Type](#calendar_user_type)</li>
-            <li>[Display](#display)</li>
-            <li>[Feature Type](#feature_type)</li>
-            <li>[Role](#role)</li>
-            <li>[Rsvp Type](#rsvp)</li>
-        </ol>
-    </li>
-    <li>[Utility Methods](#utilities)  
-        <ol>
-            <li>[formatDate](#format_date)</li>
-            <li>[validateEmail](#validate_email)</li> 
-        </ol>
-    </li>
- 
-</ol></li>
+1. [Examples](#examples)
+2. [Api](#api)  
+   &nbsp;&nbsp;&nbsp;&nbsp;2.1 [Builders](#builders)  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1.1 [Calendar Builder](#calendar_builder)  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1.2 [Event Builder](#event_builder)  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.1.3 [Timespan Builder](#timespan_builder)  
+    &nbsp;&nbsp;&nbsp;&nbsp;2.2 [Objects](#objects)  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.1 [Attendee](#attendee)  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.2 [Conference](#conference)  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.2.3 [Organizer](#organizer)  
+    &nbsp;&nbsp;&nbsp;&nbsp;2.3 [Constants](#constants)  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3.1 [Availability](#availability)  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3.2 [Calendar User Type](#calendar_user_type)  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3.3 [Display](#display)  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3.4 [Feature Type](#feature_type)  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3.5 [Role](#role)  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.3.6 [Rsvp Type](#rsvp)  
+    &nbsp;&nbsp;&nbsp;&nbsp;2.4 [Utility Methods](#utilities)  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.4.1 [formatDate](#format_date)  
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.4.2 [validateEmail](#validate_email)
 
-    &nbsp;&nbsp;
-    &nbsp;&nbsp;
+</li>
 
 # Examples<a name="examples"></a>
 
@@ -61,19 +44,10 @@ const {
     Role,
     CalendarUserType,
     RSVPType
-} = require('ics-standard-compliant-file-generator')
+} = require('ics-standard-builder')
 
 /*
 
-    To import the package you will need to either run this example outside of the root
-    or modify temporarily the package.json to change the name.  Otherwise, the package
-    will not install because there will be a name conflict
-
-*/
-
-/*
-
-    Start with creating a Calendar Builder, this does not need to happen at first but it is logical to start here
     The Calendar Builder is the container and the actual generator of the *.ics file
 
 */
